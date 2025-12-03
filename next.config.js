@@ -1,15 +1,18 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  swcMinify: true,
-  output: 'export',
+  // Remove output: 'export' for Vercel deployment
   images: {
-    unoptimized: true, // Required for static export
     domains: ['images.unsplash.com', 'source.unsplash.com'],
   },
-  // Disable server-side rendering for the entire app
-  trailingSlash: true,
-  distDir: 'out',
+  // Enable React DevTools in development
+  experimental: {
+    reactRefresh: true,
+  },
+  // Optional: Add if you're using styled-components or similar
+  compiler: {
+    styledComponents: true,
+  },
   // Add custom headers
   async headers() {
     return [
