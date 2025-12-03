@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@ant-design/icons": "^6.1.0",
+    "@geist-ui/core": "^2.3.8",
     "antd": "^6.0.1",
     "framer-motion": "^12.23.25",
     "next": "^14.0.4",
