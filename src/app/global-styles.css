@@ -1,0 +1,27 @@
+/* Force scrollbar styling */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #007FFF rgba(0, 0, 0, 0.1);
+}
+
+/* For Webkit browsers */
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #007FFF !important;
+  border-radius: 4px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: #3399FF !important;
+}
