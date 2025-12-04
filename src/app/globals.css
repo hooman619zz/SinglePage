@@ -11,14 +11,14 @@
 
 /* Custom variables */
 :root {
-  --color-primary: #9333ea;
-  --color-primary-dark: #7e22ce;
-  --color-secondary: #4f46e5;
-  --color-accent: #ec4899;
-  --color-bg: #030712;
-  --color-surface: #111827;
-  --color-text: #e5e7eb;
-  --color-muted: #9ca3af;
+  --color-primary: #007FFF;    /* Primary blue */
+  --color-primary-dark: #0059b3; /* Darker blue */
+  --color-secondary: #3399FF;  /* Lighter blue */
+  --color-accent: #66B2FF;     /* Accent blue */
+  --color-bg: #001a33;         /* Dark blue background */
+  --color-surface: #00264d;    /* Slightly lighter than bg */
+  --color-text: #e5f0ff;       /* Off-white text */
+  --color-muted: #8ab4f8;      /* Muted blue text */
   --radius-sm: 0.25rem;
   --radius-md: 0.5rem;
   --radius-lg: 1rem;
@@ -39,8 +39,54 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background-image: 
-      radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.1) 1px, transparent 0);
+      radial-gradient(circle at 1px 1px, rgba(0, 127, 255, 0.1) 1px, transparent 0);
     background-size: 20px 20px;
+    
+    /* Custom scrollbar */
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-primary) var(--color-bg);
+  }
+  
+  /* Force scrollbar styling with !important to override any other styles */
+  :root {
+    --scrollbar-track: rgba(0, 0, 0, 0.1);
+    --scrollbar-thumb: #007FFF;
+    --scrollbar-thumb-hover: #3399FF;
+  }
+  
+  /* For Firefox */
+  * {
+    scrollbar-width: thin !important;
+    scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track) !important;
+  }
+  
+  /* For WebKit (Chrome, Safari, Edge) */
+  ::-webkit-scrollbar {
+    width: 8px !important;
+    height: 8px !important;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: var(--scrollbar-track) !important;
+    border-radius: 4px !important;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-thumb) !important;
+    border-radius: 4px !important;
+    border: 2px solid transparent !important;
+    background-clip: content-box !important;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: var(--scrollbar-thumb-hover) !important;
+  }
+  
+  /* Apply to all elements */
+  *,
+  *::before,
+  *::after {
+    scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track) !important;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -50,12 +96,13 @@
   }
 
   a {
-    color: #a78bfa;
+    color: var(--color-secondary);
+    transition: color 0.2s ease;
     transition: color 0.2s ease;
   }
 
   a:hover {
-    color: #c4b5fd;
+    color: #66B2FF;
   }
 }
 
@@ -72,37 +119,43 @@
   }
 
   .btn-primary {
-    background: linear-gradient(to right, #9333ea, #ec4899);
+    background: linear-gradient(to right, #007FFF, #3399FF);
     color: white;
   }
 
   .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 15px -3px rgba(147, 51, 234, 0.3);
+    box-shadow: 0 10px 15px -3px rgba(0, 127, 255, 0.3);
+    background: linear-gradient(to right, #0066cc, #007FFF);
   }
 
   .btn-outline {
-    border: 1px solid #374151;
+    border: 1px solid #3399FF;
     color: #d1d5db;
     background: transparent;
+    transition: all 0.3s ease;
   }
 
   .btn-outline:hover {
-    background-color: rgba(55, 65, 81, 0.2);
-    border-color: #4b5563;
+    background-color: rgba(0, 127, 255, 0.1);
+    border-color: #66B2FF;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px -1px rgba(0, 127, 255, 0.2);
   }
 
   .card {
-    background-color: rgba(17, 24, 39, 0.5);
+    background-color: rgba(0, 38, 77, 0.5);
     backdrop-filter: blur(8px);
     border-radius: 1rem;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(0, 127, 255, 0.1);
     transition: all 0.3s ease;
   }
 
   .card:hover {
-    border-color: rgba(147, 51, 234, 0.5);
-    box-shadow: 0 10px 25px -5px rgba(147, 51, 234, 0.1);
+    border-color: rgba(0, 127, 255, 0.3);
+    box-shadow: 0 10px 25px -5px rgba(0, 127, 255, 0.1);
+    transform: translateY(-2px);
   }
 }
 

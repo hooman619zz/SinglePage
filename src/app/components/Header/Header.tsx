@@ -1,8 +1,9 @@
 'use client';
 
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { FiMenu, FiX } from 'react-icons/fi';
 
 export const Header = () => {
   const [scrolled, setScrolled] = useState(false);
